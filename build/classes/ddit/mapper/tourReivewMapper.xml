@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+	
+<sqlMap namespace="tourReview">
+
+	<select id="tour_review_check" parameterClass="map" resultClass="TourReviewVo">
+		select * from tour_review where member_id = #member_id# and tour_code = #tour_code#
+	</select>
+	
+	
+	<update id="tour_review_insert" parameterClass="map">
+		insert into tour_review values(tour_review_no_seq.nextval, #tour_code#, #t_content#, #t_star#, '없음', sysdate, #member_id#)
+	</update>
+
+
+	<delete id="tour_review_delete" parameterClass="String"> 
+		delete from tour_review where t_reviewno = #reviewNo#
+	</delete>
+	
+	<update id="tour_review_update" parameterClass="map">
+		update tour_review set TOUR_CODE = #tour_code#, T_CONTENT = #t_content#, T_STAR = #t_star#, T_DATE = sysdate, MEMBER_ID=#member_id# where t_reviewno =#t_reviewno#
+	</update>
+</sqlMap>	
+	

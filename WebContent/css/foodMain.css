@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+.search{
+	padding-top : 50px;
+}
+.search form{
+	flex-shrink: 0;
+}
+#filterDrop{
+	width : 800px;
+	height : 50px;
+}
+.listBox{
+	display : flex;
+	flex-direction: row;
+	flex-basis: auto;
+}
+.filterList{
+	flex-direction: column;
+}
+
+.list{ /* 얜 뭐야 */
+	display : flex;
+}
+.card{
+ 	margin : 5px;
+}
+
+
+.noResult{
+	margin-top : 30px;
+}
+
+h2{
+	position : relative;
+}
+
+.trbox { 
+	height : 350px;
+}
+
+.filterBox{
+	
+	width : 200px;
+	float : left;
+}
+
+.areaTool { /* 얜 또 무ㅓ야 */
+	display : flex;
+}
+
+.tagvar{
+	position : relative;
+	left : 60%;
+}
+
+.tagvar a {
+	float : none;
+	margin-right : 100px;
+	padding : 10px;
+}

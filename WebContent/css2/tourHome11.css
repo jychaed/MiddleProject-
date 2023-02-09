@@ -1,0 +1,388 @@
+@charset "UTF-8";
+/* ========================================================= */
+/* --------------------------------------------------------- */
+/*                       紐⑤컮�� (怨듯넻)                        */
+/* --------------------------------------------------------- */
+/* ========================================================= */
+
+/* 怨듯넻 */
+i, .swiper-button-next, .swiper-button-prev { background-image:url(http://d3b39vpyptsv01.cloudfront.net/0/0/1548062231191VwAkOaUebn.png); background-repeat:no-repeat; vertical-align:middle; }
+header .stu_header { border-color:rgba(255,255,255,.6); background:none; z-index:2; }
+header .lnb_container .lnb_item a { color:#fff; }
+header .lnb_container .lnb_item:hover a { border-color:rgba(255,255,255,.5) }
+header .lnb_container .lnb_item.active a { border-color:rgba(255,255,255,1) }
+main.stu_clearfix { padding:0; overflow:visible; }
+section { padding:28px 0 14px; }
+h2 { font-size:20px; line-height:1.4; }
+h3 { font-size:18px; line-height:1.5; }
+.swiper-container { z-index:0; }
+.titArea { margin:0 0 12px; padding:0 20px; }
+.titArea .stu_title { position:relative; margin:0 0 2px; font-weight:bolder; color:#222; }
+.titArea p { font-size:14px; font-weight:normal; color:#4a4a4a; }
+.btnWrap { display:block; padding:0 20px; text-align:center; }
+.btnWrap a { display:block; height:40px; margin:16px auto 0; border:1px solid #ddd; -webkit-border-radius:2px; border-radius:2px; font-size:15px; font-weight:bold; line-height:38px; color:#4a4a4a; cursor:pointer; }
+
+
+
+/* topBanner �곸뿭 */
+.stu_top_banner { position:relative; margin:-44px 0 0; padding:0; z-index:1; }
+.stu_top_banner .stu_bg { height:340px; background-position:center; -webkit-background-size:cover; background-size:cover; }
+.stu_top_banner .stu_tone { position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,.12); }
+.stu_top_banner .titArea { position:absolute; top:50%; left:50%; -webkit-transform:translate(-50%, -50%); transform:translate(-50%, -50%); width:100%; margin:0; padding:0 0 0 30px; text-align:left; }
+.stu_top_banner .titArea b.type { display:block; font-size:16px; font-weight:bolder; line-height:22px; color:#ee685a; }
+.stu_top_banner .titArea b.title { display:block; margin:0 0 8px; font-size:26px; font-weight:bolder; line-height:1.4; color:#fff; }
+.stu_top_banner .titArea p { margin:0 0 16px; font-size:16px; font-weight:normal; line-height:22px; color:#fff; }
+.stu_top_banner .titArea span { display:inline-block; height:38px; padding:0 12px 0 16px; -webkit-border-radius:3px; border-radius:3px; background:#fff; font-size:15px; font-weight:500; line-height:38px; text-shadow:none; color:#4a4a4a; }
+.stu_top_banner .titArea span i { display:inline-block; width:18px; height:18px; margin:0 0 0 2px; background-position:-18px -51px; background-size:192px; vertical-align:-3.5px; }
+.stu_top_banner .titArea span i.white { background-position:-54px -51px; }
+/* topBanner-search */
+.stu_top_banner .stu_main_search { width:calc(100% - 40px); margin:0 auto; }
+.stu_top_banner .search_input { display:block; position:relative; height:50px; margin:-25px 0 0; padding:0 0 0 20px; -webkit-border-radius:3px; border-radius:3px; -webkit-box-shadow:0 1px 1px 0 rgba(0,0,0,.15), 0 3px 9px rgba(40,50,60,.2); box-shadow:0 1px 1px 0 rgba(0,0,0,.15), 0 3px 9px rgba(40,50,60,.2); background:#fff; font-size:15px; font-weight:normal; line-height:49px; color:#666; }
+.stu_top_banner .search_input i { display:inline-block; width:20.4px; height:20.4px; margin:0 4px 0 0; background-position:-57.8px -30.6px; background-size:217.6px; vertical-align:-4px; opacity:.7; }
+/* topBanner-swiper*/
+.stu_top_banner .swiper-button-next, .stu_top_banner .swiper-button-prev { display:none; }
+.stu_top_banner .swiper-pagination { left:50%; bottom:60px; -webkit-transform:translateX(-50%); transform:translateX(-50%); }
+.stu_top_banner .swiper-pagination-bullet { width:10px; height:10px; margin:0 3px; -webkit-border-radius:10px; border-radius:10px; background:#fff; -webkit-transition:width .3s ease-out; outline:none; opacity:.7; }
+.stu_top_banner .swiper-pagination-bullet-active { width:22px; background:#ee685a; opacity:1; }
+
+
+
+/* �쒕퉬�� �뚭컻 */
+.stu_svc_icon { display:none; }
+
+
+
+/* swiper�뱀뀡 - 怨듯넻 */
+.stu_swiper-section .swiper-container { padding:0 0 12px; }
+.stu_swiper-section li { float:left; display:inline-block; }
+.stu_swiper-section li:first-child { margin-left:15px; }
+.stu_swiper-section li:last-child { margin-right:15px; }
+.stu_swiper-section .prd_item { float:left; display:block; padding:0 5px; }
+.stu_swiper-section .prd_item a { display:block; position:relative; overflow:hidden; }
+.stu_swiper-section .imgArea, .stu_swiper-section .thumb { position:relative; width:100%; -webkit-border-radius:2px; border-radius:2px; overflow:hidden; }
+.stu_swiper-section .imgArea:after { content:""; position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,.12); }
+.stu_swiper-section .textArea { display:inline-block; position:absolute; text-shadow:1px 1px 2px rgba(0,0,0,.4); }
+.stu_swiper-section .textArea p { max-width:100%; font-size:17px; font-weight:bold; color:#fff; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
+.stu_swiper-section .textArea span { display:inline-block; margin:3px 0 0; font-size:13px; color:rgba(255,255,255,.8); }
+.stu_swiper-section .btnWrap a { margin:10px auto 0; border-color:#3ad195; color:#3ad195; }
+.stu_swiper-section .btnWrap i { display:inline-block; width:20px; height:20px; margin:0 2px 0 0; background-size:320px; vertical-align:-5px; }
+.stu_swiper-section .swiper-button-next, .stu_swiper-section .swiper-button-prev { display:none; }
+.stu_swiper-section .swiper-scrollbar { position:absolute; left:50%; bottom:2px; width:calc(100% - 40px); height:4px; -webkit-transform:translateX(-50%); transform:translateX(-50%); -webkit-border-radius:10px; border-radius:10px; background:rgba(0,0,0,.05); z-index:0; }
+.stu_swiper-section .swiper-scrollbar-drag { top:0; left:0; height:100%; -webkit-border-radius:10px; border-radius:10px; background:rgba(0,0,0,.3); }
+/* swiper�뱀뀡 - 怨꾪쉷�� �ы븿�� �꾩떆 */
+.select_city li { width:110px; }
+.select_city li .prd_item { width:100%; }
+.select_city li a { -webkit-border-radius:2px; border-radius:2px; -webkit-box-shadow:0 1px 3px rgba(0,0,0,.3); box-shadow:0 1px 3px rgba(0,0,0,.3); }
+.select_city li .imgArea { padding:72% 0 0; -webkit-border-radius:0; border-radius:0; }
+.select_city li .imgArea:after { display:none; }
+.select_city li .textArea { position:relative; width:100%; padding:3px 0; text-shadow:none; }
+.select_city li .textArea p { font-size:14px; color:#222; }
+.select_city li .textArea span { margin:0; font-weight:normal; color:#8f8f8f; }
+/* swiper�뱀뀡 - 理쒓렐 蹂� �ы뻾 */
+.stu_recent-offer li { width:280px; }
+.stu_recent-offer .thumb { height:140px; }
+.stu_recent-offer .thumb:before { content:""; position:absolute; left:0; right:0; bottom:0; height:30%; background-image:linear-gradient(to top, #000, rgba(0,0,0,0)); opacity:.4; z-index:1; }
+.stu_recent-offer .band, .stu_recent-offer .band2 { position:absolute; display:inline-block; font-size:13px; font-weight:normal; color:#fff; z-index:1; }
+.stu_recent-offer .band { top:12px; right:12px; padding:2px 10px 4px 8px; -webkit-border-radius:3px; border-radius:3px; }
+.stu_recent-offer .band2 { right:0; bottom:0; padding:4px 12px 6px 8px; -webkit-border-top-left-radius:3px; border-top-left-radius:3px; }
+.stu_recent-offer .band2 i, .stu_recent-offer .band2 p { display:inline-block; margin:0 2px 0 0; visibility:visible! important; }
+.stu_recent-offer .band2 i { width:14.4px; height:14.4px; background-position:-139.2px -79.2px; background-size:153.6px; vertical-align:-2.5px; }
+.stu_recent-offer .band2 p { width:16.2px; height:16.2px; background-image:url(http://d3b39vpyptsv01.cloudfront.net/0/0/1548062231191VwAkOaUebn.png); background-position:-153.9px -24.3px; background-size:172.8px; vertical-align:-3px; }
+.stu_recent-offer .prd_info { position:relative; width:100%; max-height:82px; padding:8px 2px 34px; background:#fff; text-align:left; }
+.stu_recent-offer .cpn { display:inline-block; position:absolute; top:-6px; left:12px; -webkit-transform:translateY(-100%); transform:translateY(-100%); font-size:13px; font-weight:normal; color:#fff; z-index:1; }
+.stu_recent-offer .name { display:-webkit-box; max-height:38px; font-size:14px; font-weight:bold; line-height:19px; color:#222; overflow:hidden; text-overflow:ellipsis; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+.stu_recent-offer .score { display:none; }
+.stu_recent-offer .score i { display:inline-block; width:15.12px; height:14.4px; margin:0 2px 0 0; background-position:0 -129.6px; background-size:230.4px; vertical-align:-1.5px; }
+.stu_recent-offer .score span.buy { margin:0 0 0 8px; font-weight:normal; color:#8f8f8f; }
+.stu_recent-offer .price { display:inline-block; position:absolute; left:2px; bottom:8px; font-size:14px; font-weight:bold; color:#222; }
+.stu_recent-offer .price span { margin:0 8px 0 0; font-size:13px; font-weight:normal; color:#8f8f8f; }
+/* swiper�뱀뀡 - �곹뭹�쒓렇 */
+.stu_tagArea li { width:auto; padding:0 4px; }
+.stu_tagArea li:first-child { margin-left:16px; }
+.stu_tagArea li:last-child { margin-right:16px; }
+.stu_tagArea .stu_tag { display:inline-block; height:30px; padding:0 12px; -webkit-border-radius:30px; border-radius:30px; background:#f5f5f7; font-size:14px; font-weight:normal; line-height:29px; color:#666; }
+.stu_tagArea .stu_tag:hover { background:#eaeaec; }
+.stu_tagArea .stu_tag i { display:inline-block; width:16.2px; height:16.2px; margin:0 4px 0 0; background-size:172.8px; vertical-align:-3.2px; opacity:.8; }
+.stu_tagArea .ico_theme i { background-position:-110.7px -24.3px; }
+.stu_tagArea .ico_country i { margin:0 3px 0 -3px; background-position:-131.76px -2.7px; }
+/* swiper�뱀뀡 - �꾩떆�좏깮 */
+.select_country li { width:240px; }
+.select_country li .prd_item { width:120px; }
+.select_country li .imgArea { padding:80% 0 0; }
+.select_country li .textArea { top:50%; left:50%; -webkit-transform:translate(-50%, -50%); transform:translate(-50%, -50%); width:100%; padding:0 4px; }
+.select_country .btnWrap i { background-position:-220px -200px; }
+/* swiper�뱀뀡 - �뚮쭏�좏깮 */
+.select_theme li { width:840px; }
+.select_theme li .prd_item { width:280px; }
+.select_theme li .imgArea { padding:55.2% 0 0; }
+.select_theme li .textArea { left:16px; bottom:16px; text-align:left; }
+.select_theme .btnWrap i { background-position:-148px -320px; }
+/* swiper�뱀뀡 - 荑좏룿�좏깮 */
+.select_coupon li { width:280px; }
+.select_coupon li .prd_item { width:100%; }
+.select_coupon li .imgArea { padding:51.61% 0 0; }
+.select_coupon li .imgArea:after { display:none; }
+.select_coupon li .textArea { top:50%; left:50%; -webkit-transform:translate(-50%, -50%); transform:translate(-50%, -50%); width:100%; padding:0 14px 0 28px; line-height:1; text-shadow:none; }
+.select_coupon li .textArea span { margin:0 0 12px; font-size:16px; color:#3ad195; }
+.select_coupon li .textArea p { margin:0 0 16px; font-size:30px; font-weight:bolder; color:#4a4a4a; }
+.select_coupon li .textArea b { display:inline-block; height:30px; padding:0 14px; -webkit-border-radius:30px; border-radius:30px; background:#3ad195; font-size:14px; line-height:29px; color:#fff; }
+.select_coupon li .textArea i { display:inline-block; width:18px; height:18px; margin:0 0 0 4px; background-position:-36px -216px; background-size:288px; vertical-align:-4px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================================= */
+/* --------------------------------------------------------- */
+/*                    �쒕툝由� (媛�濡� 諛� �몃줈)                    */
+/* --------------------------------------------------------- */
+/* ========================================================= */
+
+@media (min-width:620px){
+
+/* 怨듯넻 */
+section {  }
+h2 { font-size:21px; }
+h3 { font-size:19px; }
+.titArea { padding:0 0 0 20px; }
+.titArea .stu_title { margin:0 0 3px; }
+.titArea p { font-size:15px; }
+.btnWrap {  }
+.btnWrap a { max-width:280px; margin:10px auto 0; }
+.swiper-button-next, .swiper-button-prev { -webkit-transform:translateY(-50%); transform:translateY(-50%); margin:0; outline:none; }
+
+
+
+/* topBanner �곸뿭 */
+.stu_top_banner .titArea { padding:0 0 0 80px; }
+/* topBanner-search */
+.stu_top_banner .stu_main_search { position:absolute; bottom:0; left:50%; transform:translate(-50%, 50%); max-width:900px; width:calc(100% - 80px); }
+.stu_top_banner .search_input { margin:0; }
+.stu_top_banner .search_input i {  }
+/* topBanner-swiper*/
+.stu_top_banner .swiper-button-next, .stu_top_banner .swiper-button-prev { display:block; width:48px; height:48px; background-size:512px; }
+.stu_top_banner .swiper-button-next { right:14px; background-position:-144px -136px; }
+.stu_top_banner .swiper-button-prev { left:14px; background-position:-96px -136px; }
+.stu_top_banner .swiper-pagination { bottom:35px; }
+.stu_top_banner .swiper-pagination-bullet { width:12px; height:12px; margin:0 4px; -webkit-border-radius:12px; border-radius:12px; }
+.stu_top_banner .swiper-pagination-bullet-active { width:26px; }
+
+
+
+/* �쒕퉬�� �뚭컻 */
+.stu_svc_icon { display:block; padding:0; background:#f5f5f7; }
+.stu_svc_icon ul { padding:45px 0 25px; font-size:0; text-align:center; }
+.stu_svc_icon li { display:inline-table; max-width:33.33%; width:auto; padding:0 14px; text-align:left; vertical-align:top; }
+.stu_svc_icon .imgWrap { display:table-cell; width:50px; vertical-align:top; }
+.stu_svc_icon .imgWrap i { display:block; width:50px; height:50px; -webkit-border-radius:50%; border-radius:50%; background:#fff url(http://stuweb.s3.amazonaws.com/0/0/1547656934098zyQbNO01XQ.jpg) 0 0 no-repeat; background-size:132px; }
+.stu_svc_icon .imgWrap i.ico_svc1 { background-position:3px 3px; }
+.stu_svc_icon .imgWrap i.ico_svc2 { background-position:-41px 3px; }
+.stu_svc_icon .imgWrap i.ico_svc3 { background-position:-85px 3px; }
+.stu_svc_icon .txtWrap { display:table-cell; padding:0 0 0 10px; word-break:keep-all; vertical-align:top; }
+.stu_svc_icon .txtWrap b { display:block; margin:0 0 4px; font-size:15px; color:#4a4a4a; }
+.stu_svc_icon .txtWrap p { display:block; font-size:14px; font-weight:300; color:#8f8f8f; }
+
+
+
+/* swiper�뱀뀡 - 怨듯넻 */
+.stu_swiper-section .stu_inner_wrap { padding:0 20px; }
+.stu_swiper-section .swiper-container { width:calc(100% - 28px); padding:0; }
+.stu_swiper-section li:first-child, .stu_swiper-section li:last-child { margin:0; }
+.stu_swiper-section .prd_item { padding:0 6px 12px; }
+.stu_swiper-section .swiper-button-next, .stu_swiper-section .swiper-button-prev { display:block; width:48px; height:48px; background-size:384px; opacity:1; }
+.stu_swiper-section .swiper-button-next.swiper-button-disabled:after, .stu_swiper-section .swiper-button-prev.swiper-button-disabled:after { content:""; display:block; position:absolute; top:4px; left:4px; width:40px; height:40px; -webkit-border-radius:50%; border-radius:50%; background:rgba(255,255,255,.7); }
+.stu_swiper-section .swiper-button-next { right:14px; background-position:-48px -144px; }
+.stu_swiper-section .swiper-button-prev { left:14px; background-position:0 -144px; }
+.stu_swiper-section .swiper-scrollbar { display:none; }
+/* swiper�뱀뀡 - 怨꾪쉷�� �ы븿�� �꾩떆 */
+.select_city .stu_inner_wrap { padding:0; }
+.select_city .titArea { padding:0 0 0 40px; }
+.select_city .swiper-container { width:100%; }
+.select_city li:first-child { margin-left:34px; }
+.select_city li:last-child { margin-right:34px; }
+.select_city .swiper-button-next, .select_city .swiper-button-prev { display:none; }
+/* swiper�뱀뀡 - 理쒓렐 蹂� �ы뻾 */
+.stu_recent-offer .stu_inner_wrap { padding:0; }
+.stu_recent-offer .titArea { padding:0 0 0 40px; }
+.stu_recent-offer .swiper-container { width:100%; }
+.stu_recent-offer li a { -webkit-border-radius:2px; border-radius:2px; }
+.stu_recent-offer li a:before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; -webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.12); box-shadow:inset 0 0 0 1px rgba(0,0,0,.12); z-index:2; }
+.stu_recent-offer li:first-child { margin-left:34px; }
+.stu_recent-offer li:last-child { margin-right:34px; }
+.stu_recent-offer .thumb { -webkit-border-radius:0; border-radius:0; }
+.stu_recent-offer .prd_info { height:82px; padding:8px 12px 34px; }
+.stu_recent-offer .score { display:inline-block; position:absolute; left:12px; bottom:8px; font-size:13px; font-weight:bold; color:#222; }
+.stu_recent-offer .price { left:auto; right:12px; }
+.stu_recent-offer .swiper-button-next, .stu_recent-offer .swiper-button-prev { display:none; }
+/* swiper�뱀뀡 - �곹뭹�쒓렇 */
+.stu_tagArea li { padding:0 4px 14px; }
+.stu_tagArea a:before { display:none; }
+/* swiper�뱀뀡 - �꾩떆�좏깮 */
+.select_country li { width:25%; }
+.select_country li .prd_item { width:100%; }
+.select_country .swiper-button-next, .select_country .swiper-button-prev { margin:-10px 0 0; }
+/* swiper�뱀뀡 - �뚮쭏�좏깮 */
+.select_theme li { width:100%; }
+.select_theme li .prd_item { width:33.33%; }
+.select_theme li .textArea { top:50%; left:50%; bottom:auto; -webkit-transform:translate(-50%, -50%); transform:translate(-50%, -50%); text-align:center; }
+/* swiper�뱀뀡 - 荑좏룿�좏깮 */
+.select_coupon .stu_inner_wrap { padding:0; }
+.select_coupon .titArea { padding:0 0 0 40px; }
+.select_coupon .swiper-container { width:100%; }
+.select_coupon li:first-child { margin-left:34px; }
+.select_coupon li:last-child { margin-right:34px; }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================================= */
+/* --------------------------------------------------------- */
+/*                    PC �� (媛�濡� 諛� �몃줈)                    */
+/* --------------------------------------------------------- */
+/* ========================================================= */
+
+@media (min-width:1025px){
+
+/* 怨듯넻 */
+header .lnb_container .gnb_search { border-color:rgba(255,255,255,.6); }
+header .lnb_container .gnb_search i.ico_search { background-position:-140.25px -38.25px; }
+h2 { font-size:24px; }
+h3 { font-size:22px; }
+.titArea { margin:0 0 14px; }
+.titArea p { font-size:17px; }
+.btnWrap {  }
+.btnWrap a { height:48px; font-size:16px; line-height:46px; }
+
+
+
+/* topBanner �곸뿭 */
+.stu_top_banner { margin:-51px 0 0; }
+.stu_top_banner .stu_bg { height:400px; }
+.stu_top_banner .titArea { padding:10px 0 0 100px; }
+.stu_top_banner .titArea b.type { font-size:22px; margin:0 0 8px; }
+.stu_top_banner .titArea b.title { margin:0 0 14px; font-size:40px; line-height:1.25; }
+.stu_top_banner .titArea p { margin:0 0 22px; font-size:20px; font-weight:bold; }
+/* topBanner-search */
+.stu_top_banner .stu_main_search {  }
+.stu_top_banner .search_input { font-size:16px; }
+.stu_top_banner .search_input i { margin:0 8px 0 0; }
+/* topBanner-swiper*/
+.stu_top_banner .swiper-button-next, .stu_top_banner .swiper-button-prev { width:60px; height:60px; background-size:640px; }
+.stu_top_banner .swiper-button-next { right:4%; background-position:-180px -170px; }
+.stu_top_banner .swiper-button-prev { left:4%; background-position:-120px -170px; }
+.stu_top_banner .swiper-pagination {  }
+.stu_top_banner .swiper-pagination-bullet { margin:0 6px; }
+
+
+
+/* �쒕퉬�� �뚭컻 */
+.stu_svc_icon ul { padding:55px 0 35px; }
+.stu_svc_icon li { padding:0 40px; }
+.stu_svc_icon .imgWrap { width:56px; }
+.stu_svc_icon .imgWrap i { width:56px; height:56px; background-size:150px; }
+.stu_svc_icon .imgWrap i.ico_svc1 { background-position:4px 3.5px; }
+.stu_svc_icon .imgWrap i.ico_svc2 { background-position:-46.5px 3.5px; }
+.stu_svc_icon .imgWrap i.ico_svc3 { background-position:-96.5px 3.5px; }
+.stu_svc_icon .txtWrap b { margin:4px 0; font-size:16px; }
+
+
+
+/* swiper�뱀뀡 - 怨듯넻 */
+.stu_swiper-section .stu_inner_wrap { max-width:1112px; padding:0; }
+.stu_swiper-section .titArea { padding:0 0 0 6px; }
+.stu_swiper-section .swiper-container { width:100%; }
+.stu_swiper-section .textArea p { font-size:21px; }
+.stu_swiper-section .textArea span { font-size:15px; }
+.stu_swiper-section .btnWrap i { width:22px; height:22px; background-size:352px; }
+.stu_swiper-section .swiper-button-next, .stu_swiper-section .swiper-button-prev { background-size:512px; }
+.stu_swiper-section .swiper-button-next.swiper-button-disabled:after, .stu_swiper-section .swiper-button-prev.swiper-button-disabled:after { display:none; }
+.stu_swiper-section .swiper-button-next { right:-60px; background-position:-48px -136px; }
+.stu_swiper-section .swiper-button-prev { left:-60px; background-position:0 -136px; }
+.stu_swiper-section .swiper-button-disabled { opacity:.15; }
+/* swiper�뱀뀡 - 怨꾪쉷�� �ы븿�� �꾩떆 */
+.select_city li { width:10%; }
+.select_city li:first-child, .select_city li:last-child { margin:0; }
+.select_city li .textArea span { font-size:13.5px; }
+.select_city .swiper-button-next, .select_city .swiper-button-prev { display:block; margin:16.4px 0 0; }
+/* swiper�뱀뀡 - 理쒓렐 蹂� �ы뻾 */
+.stu_recent-offer li { width:25%; }
+.stu_recent-offer li:first-child, .stu_recent-offer li:last-child { margin:0; }
+.stu_recent-offer .name { max-height:40px; font-size:15px; line-height:20px; }
+.stu_recent-offer .price { font-size:15px; }
+.stu_recent-offer .swiper-button-next, .stu_recent-offer .swiper-button-prev { display:block; margin:41px 0 0; }
+/* swiper�뱀뀡 - �곹뭹�쒓렇 */
+.stu_tagArea li { width:auto; }
+.stu_tagArea li:first-child { margin-left:2px; }
+.stu_tagArea li:last-child { margin-right:2px; }
+.stu_tagArea .stu_tag { height:34px; padding:0 16px; font-size:15px; line-height:33px; }
+.stu_tagArea .stu_tag i { width:18px; height:18px; background-size:192px; vertical-align:-4px; }
+.stu_tagArea .ico_theme i { background-position:-123px -27px; }
+.stu_tagArea .ico_country i { margin:0 3px 0 -4px; background-position:-146.4px -3px; }
+/* swiper�뱀뀡 - �꾩떆�좏깮 */
+.select_country li { width:20%; }
+.select_country .btnWrap i { background-position:-242px -220px; }
+/* swiper�뱀뀡 - �뚮쭏�좏깮 */
+.select_theme .btnWrap i { background-position:-162.8px -352px; }
+/* swiper�뱀뀡 - 荑좏룿�좏깮 */
+.select_coupon .stu_inner_wrap { max-width:1116px; }
+.select_coupon .titArea { padding:0 0 0 8px; }
+.select_coupon li { width:33.33%; }
+.select_coupon li:first-child, .select_coupon li:last-child { margin:0; }
+.select_coupon li .prd_item { padding:0 8px; }
+.select_coupon li .textArea span { font-size:18px; }
+.select_coupon li .textArea p { font-size:34px; }
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

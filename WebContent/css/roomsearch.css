@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+.resultArea{
+/* 	border: 2px solid gray; */
+	width : 90%;
+	height : 60px;
+	margin-left: 20px;
+	padding : 20px;
+}
+.RAsearchbox{
+	float : left;
+}
+.RAfilter{
+	float : right;
+}
+#hr1{
+	border : 0;
+	width : 90%;
+	height : 2px;
+	background-color : gray;
+	margin-left: 20px;
+}
+
+
+.roomFilter{
+	border: 2px solid lightblue;
+	width : 17%;
+	height : 300px;
+	margin-left: 5px;
+	float : left;
+}
+
+
+.listArea{
+/* 	border: 2px solid tomato; */
+	width : 90%;
+	height : 700px; /* %로 바꾸기 */
+	margin-left: 20px;
+	padding : 10px;
+	text-align : center; 
+}
+.listArea .resultList{
+/* 	border: 2px solid lightblue; */
+	width : 80%;
+	height : 600px; /* %로 변경하기 */
+	float : right;
+}
+.list1, .list2{
+/* 	border: 2px solid gray; */
+	width : 100%;
+	height : 160px;
+	padding : 10px;
+	margin : 2px;
+}
+.list1 div.roomMainImg, .list2 div.roomMainImg{
+/* 	border : 2px solid gray; */
+	float : left;
+	width : 140px;
+	height : 140px; 
+	text-align : center; 
+}
+.list1 img, .list2 img{
+	width : 135px;
+	height : 135px;
+}
+.list1 div.roomMainInfo, .list2 div.roomMainInfo{
+/* 	border : 2px solid gray; */
+	float : right;
+	margin-left : 3px;
+	padding : 10px;
+	width : 80%;
+	height : 140px;  
+}
+.list1 div.roomMainInfo span, .list2 div.roomMainInfo span{
+	font-size : 17px;
+	float : left;
+}
+.list1 div.roomMainInfo #roomName, .list2 div.roomMainInfo #roomName{
+	font-size : 25px;
+	font-weight : bold;  
+}
+.list1 div.roomMainInfo #roomStar, .list2 div.roomMainInfo #roomStar{
+	font-size : 20px;
+	font-weight : bold;
+	float : right;
+}
+.list1 div.roomMainInfo #roomPrice, .list2 div.roomMainInfo #roomPrice{
+	font-size : 23px;
+	font-weight : bold;  
+	color : red;
+}
+.list1 div.roomMainInfo a, .list2 div.roomMainInfo a{
+	font-size : 20px;
+	font-weight : bold;
+}
+

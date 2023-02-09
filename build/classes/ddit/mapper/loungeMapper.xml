@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace = "lounge">
+
+<sql id="dynamicLike">
+   <dynamic prepend=" where ">
+       <isNotEmpty property="searchType"  prepend=" and ">
+          <isNotEmpty property="searchText">
+                  $searchType$  like '%'||#searchText#||'%'
+          </isNotEmpty>
+       </isNotEmpty>
+   </dynamic>
+</sql>
+
+
+
+	<insert id="lounge_insert" parameterClass="LoungeVo">
+		insert into lounge 
+		values(lounge_no_seq.nextval, #member_id#, #lounge_title#,
+		#lounge_content#, sysdate, #lounge_img#, 0 )
+	</insert>
+	
+	<select id="lounge_selectList" resultClass="LoungeVo" parameterClass="map">
+		select * from lounge
+			<include refid="dynamicLike"/> 
+			order by lounge_date desc 
+	</select>
+	
+	<delete id="lounge_delete" parameterClass="int">
+		delete from lounge 
+		where lounge_no = #lounge_no#
+	</delete>
+	
+	<update id="lounge_update" parameterClass="map">
+		update lounge set $updateCol$ = #updateData#
+			where lounge_no = #lounge_no#
+	</update>
+	
+	<select id="lounge_DetailOne" parameterClass="int" resultClass="LoungeVo">
+		select * from lounge where lounge_no = #lounge_no# 
+	</select>
+	
+	
+	
+	
+</sqlMap>
+
+
+
+
+
+
+

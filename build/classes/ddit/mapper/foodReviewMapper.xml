@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+	
+<sqlMap namespace="foodReview">
+
+<update id="food_reviewInsert" parameterClass="map">
+	insert into food_review(f_reviewno, food_code, f_content, f_star, f_pic, f_date, member_id) 
+	values(food_review_no_seq.nextval, #food_code#, #f_content#, #f_star#, '없음', sysdate, #member_id#) 
+</update>
+
+
+
+<select id="food_reviewCheck" parameterClass="map" resultClass="FoodReviewVo">
+	select * from food_review where member_id = #member_id# and food_code = #food_code#
+</select>
+
+
+<update id="food_reviewUpdate" parameterClass="map">
+	update food_review set food_code = #food_code#, f_content = #f_content#, f_star = #f_star#, f_date = sysdate, member_id = #member_id# 
+	where f_reviewno = #f_reviewno#
+</update>
+
+
+<delete id="food_reviewDelete" parameterClass="String">
+	delete from food_review where f_reviewno = #reviewNo#
+</delete>
+
+
+
+
+
+
+</sqlMap>	
+
+
+
+
+
+
+
+
+
+

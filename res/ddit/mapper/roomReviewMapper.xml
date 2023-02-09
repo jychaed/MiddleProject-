@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+	
+	
+	<sqlMap namespace = "room_review">
+	
+	 
+	<select id = "room_review_list" resultClass="RoomReviewListVo" parameterClass="String">
+		select a.r_reviewno, a.roomres_no, a.r_content, a.r_star, a.r_pic, a.r_date, d.member_nickname, c.room_code
+		from room_review a, roomres b , room c, member d
+		where b.room_code =  c.room_code
+		and   a.roomres_no = b.roomres_no
+		and b.member_id = d.member_id
+		and c.room_code=#room_code# 
+		order by a.r_date desc
+	</select>	
+
+	
+	
+	<update id="room_review_insert" parameterClass="RoomReviewVo">
+		insert into room_review values(('room_review'||room_reviewno_seq.nextval), #roomres_no#, #r_content#, #r_star#, #r_pic#, sysdate, #member_id#)
+	</update>
+	
+	<select id="room_review_check" parameterClass="map" resultClass="RoomVo">
+		select * from room_review where member_id=#member_id# and roomres_no = #roomres_no#
+	</select>
+	
+	
+	<delete id="r_review_delete" parameterClass="String">
+		delete from room_review where r_reviewno = #r_reviewno#
+	</delete>
+	
+	<update id="r_review_update" parameterClass="RoomReviewVo">
+		 update room_review set r_content = #r_content# where r_reviewno = #r_reviewno# 
+	</update>
+	
+		
+	</sqlMap>

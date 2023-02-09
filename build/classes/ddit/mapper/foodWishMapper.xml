@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="foodWish">
+	
+	<!-- 맛집 찜 추가하기 -->
+	<update id="foodWishInsert" parameterClass="map">
+		insert into foodwish(f_wishno, food_code, member_id) values(food_no_seq.nextval, #food_code#, #member_id#)
+	</update>
+
+
+	<!-- 맛집 찜 삭제하기 -->
+	<update id="foodWishDelete" parameterClass="map">
+		delete from foodwish where member_id = #member_id# and food_code = #food_code#
+	</update>
+	
+	<!-- 맛집 찜 확인하기 -->
+	<select id="foodWishCheck" parameterClass="map" resultClass="int">
+		select count(*) from foodwish where member_id = #member_id# and food_code = #food_code#
+	</select>
+
+
+
+
+
+
+
+
+
+
+</sqlMap>
+

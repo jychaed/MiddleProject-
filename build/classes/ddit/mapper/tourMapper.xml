@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+	
+<sqlMap namespace = "tour">
+
+	<select id ="tourList" parameterClass = "tourVo" resultClass="tourVo">
+		select * from tour
+	</select>
+
+	<select id="tourSelectOne" parameterClass="String" resultClass="tourVo">
+		select * from tour where tour_code = #tour_code#
+	</select>
+	
+	
+	<select id="searchTour" resultClass="TourVo" parameterClass="String">
+		select *from tour  where tour_name like  '%'||#tour_name#||'%'
+	</select>
+	
+	<!-- 찜 -->
+	<select id="tourCheckWish" parameterClass="map" resultClass="tourVo">
+		select member_id from tourwish where member_id= #memberId# and tour_code=#tourCode#
+	</select>
+	
+	
+	
+	
+	<!-- 리뷰 -->
+	
+	
+	<select id="reviewCheck" parameterClass="map" resultClass="tourVo">
+		select tour_code from TOUR_REVIEW where member_id=#member_id# and tour_code = #tour_code#
+	</select>
+	
+	<select id="tourReviewList"  parameterClass="String" resultClass="TourReviewVO">
+		select * from TOUR_REVIEW where tour_code =#tour_code#
+	</select>
+	
+	
+	
+	<!-- 관리자  -->
+	<insert id="tour_admin_insert" parameterClass="tourVo">
+		insert into tour 
+		values (('TOUR'|| TOUR_NO_SEQ.NEXTVAL),    
+			#tour_name#,      
+			#tour_addr#,      
+			#tour_tel#,  
+			#tour_homepage#,  
+			0,   
+			#tour_xpoint#,    
+			#tour_ypoint#,    
+			#tour_city#,      
+			#tour_image#,     
+			#tour_saveimage# )
+	</insert>
+	
+	<delete id="tour_delete" parameterClass="String">
+		delete tour where tour_code = #tour_code#
+	</delete>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</sqlMap>	

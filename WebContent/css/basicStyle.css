@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+div{
+/* border : 1px solid lightblue; */
+}
+#head{
+	
+}
+
+.header{
+	padding-top : 30px;
+}
+.header img{
+	width : 20px;
+	height : 20px;
+}
+body{
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+.container{
+	justify-content: center;
+	width : 40%;
+	flex-shrink: 0;
+}
+h2{
+	padding-top : 50px;
+}

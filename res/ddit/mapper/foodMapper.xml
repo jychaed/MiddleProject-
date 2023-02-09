@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="food">
+
+<sql id="dynamicCondition">
+   <dynamic prepend=" where ">
+       <isNotEmpty property="searchType"  prepend=" and "> <!-- 필터 -->
+          <isNotEmpty property="searchText"> <!-- 입력값 -->
+                  $searchType$  like '%'||#searchText#||'%'  
+          </isNotEmpty>
+       </isNotEmpty>
+   </dynamic>
+</sql>
+	
+	<!-- 맛집 검색 -->
+	<select id="foodSearch" parameterClass="map" resultClass="FoodVo">
+		select * from food
+		<include refid="dynamicCondition"/> 
+	</select>
+
+	
+	
+	<!-- 맛집 리스트 출력 : 메인 -->
+	<select id="foodList" parameterClass="FoodVo" resultClass="FoodVo">
+		select * from food
+	</select>
+
+	
+	
+	<!-- 맛집 상세보기 -->
+	<select id="food_selectOne" parameterClass="String" resultClass="FoodVo">
+		select * from food where food_code = #food_code#
+	</select>
+	
+	
+	
+	<!-- 맛집 리뷰 리스트 출력 -->
+	<select id="food_reviewList" parameterClass="String" resultClass="FoodReviewVo">
+		select * from food_review where food_code = #food_code#
+	</select>
+	
+	
+	
+	<!-- 맛집 찜하기 --> <!-- foodwish로 옮겨야...? -->
+	<select id="foodWish" parameterClass="map" resultClass="FoodVo">
+		select member_id from foodwish where food_code = #food_code# and member_id = #member_id#
+	</select>
+	
+	
+	
+	<!-- 맛집 관리 : 입력 -->
+	<insert id="food_admin_insert" parameterClass="FoodVo">
+		insert into food values(('FOOD'|| food_no_seq.nextval), #food_name#, #food_addr#,
+		0, #food_xpoint#, #food_ypoint#, #food_tel#, #food_city#, #food_image#, #food_saveimage#)
+	</insert>
+	
+	<delete id="food_delete" parameterClass="String">
+		delete food where food_code = #food_code#
+	</delete>
+	
+	
+</sqlMap>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

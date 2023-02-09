@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace = "member">
+
+<sql id="dynamicCondition">
+   <dynamic prepend=" where ">
+       <isNotEmpty property="searchType"  prepend=" and ">
+          <isNotEmpty property="searchText">
+                  $searchType$  like '%'||#searchText#||'%'
+          </isNotEmpty>
+       </isNotEmpty>
+   </dynamic>
+</sql>
+<sql id="dynamicCondition2">
+   <dynamic prepend=" where ">
+       <isNotEmpty property="searchType"  prepend=" and ">
+          <isNotEmpty property="searchText">
+                  $searchType$  = #searchText#
+          </isNotEmpty>
+       </isNotEmpty>
+   </dynamic>
+</sql>
+		
+	<select id = "memberList" resultClass="MemberVo" parameterClass="map">
+	 	select * from member 
+			<include refid="dynamicCondition"/> 
+	</select>	
+	
+	<!--  id 중복검사 -->
+	<select id="memIdCheck" parameterClass="String" resultClass="String">
+		select member_id from member where member_id = #member_id#
+	</select>
+	<!-- 회원가입하면 정보 db 넣기 -->
+	<insert id="registMem" parameterClass="MemberVo">
+		insert into member(member_id, member_password, member_name, member_phone, 
+		member_birth, member_hobby, member_addr, member_nickname)
+        values(#member_id#, #member_password#, #member_name#, #member_phone#, 
+		to_date(#member_birth#), #member_hobby#, #member_addr#, #member_nickname#)
+	</insert>
+	
+	<select id="loginCheck" parameterClass="MemberVo" resultClass="MemberVo">
+		select * from member where member_id =#member_id# and member_password=#member_password#
+	</select>
+	
+	<!-- 마이페이지 -->
+	<!-- 나의정보조회 -->
+	<select id="member_myinfo" resultClass="MemberVo" parameterClass="String" >
+		select * from  member where member_id = #member_id#
+	</select>
+	<!-- 나의여행조회  다가올,지나간 -->
+	<select id="member_mytrip_before" resultClass="TripVo" parameterClass="String">
+		select * from trip where member_id = #member_id#
+		 <![CDATA[	 and trip_start  >= sysdate    ]]>
+		order by trip_start
+	</select>
+	<select id="member_mytrip_after" resultClass="TripVo" parameterClass="String">
+		select * from trip where member_id = #member_id#
+		 <![CDATA[	 and trip_end  <= sysdate    ]]>
+		order by trip_end desc 
+	</select>
+	
+	<!-- 찜리스트 -->
+	<select id="member_mywish_room" resultClass="RoomVo" parameterClass="String">
+		select  a.room_name , a.room_addr, a.room_tel, a.room_code, a.room_city   		
+		from room a, roomwish b  
+		where  a.room_code= b.room_code 
+		and member_id = #member_id#
+	</select>
+	<select id="member_mywish_tour" resultClass="TourVo" parameterClass="String">
+		select a.tour_name , a.tour_addr, a.tour_tel, a.tour_code, a.tour_city
+		from tour a, tourwish b
+		where  a.tour_code= b.tour_code
+		and member_id = #member_id#
+	</select>
+	<select id="member_mywish_food" resultClass="FoodVo" parameterClass="String">
+		select  a.food_name , a.food_addr, a.food_tel, a.food_code , a.food_city,   		
+		from food a, foodwish b 
+		where  a.food_code= b.food_code 
+		and member_id = #member_id# 
+	</select>
+	
+	<!-- 다녀온 숙소 정보 -->
+	<select id="member_myres_room" resultClass="RoomResListVo" parameterClass="String">
+		select a.roomres_no , b.room_name , b.room_city, b.room_addr, b.room_tel, 
+		a.roomres_start, a.roomres_end ,a.roomres_status ,b.room_code 
+		from roomres a , room b 
+		where a.room_code = b.room_code 
+		 <![CDATA[	 and a.roomres_end <= sysdate   ]]>
+		and member_id =#member_id# 
+		order by a.roomres_start
+	</select>
+	
+	<!-- 숙소 예약정보  -->
+	<select id="member_myres_room_soon" resultClass="RoomResListVo" parameterClass="String">
+		select a.roomres_no , b.room_name , b.room_city, b.room_addr, b.room_tel, 
+		a.roomres_start, a.roomres_end ,a.roomres_status ,b.room_code 
+		from roomres a , room b 
+		where a.room_code = b.room_code 
+		 <![CDATA[	 and a.roomres_end >= sysdate   ]]>
+		and member_id =#member_id# 
+		order by a.roomres_start
+	</select>
+	
+	
+	
+	<!--  내가 작성한 리뷰  -->
+	<select id="member_myreview_tour" resultClass="MyReviewListVo" parameterClass="String">
+		select a.tour_name ,  a.tour_code, a.tour_city, b.t_star, b.t_content,  b.t_date
+		from tour a, tour_review b
+		where  a.tour_code= b.tour_code
+		and member_id = #member_id#
+	</select>
+	<select id="member_myreview_room" resultClass="MyReviewListVo" parameterClass="String">
+		select *from room a, roomres b, room_review c
+		where a.room_code = b.room_code
+		and b.roomres_no = c.roomres_no
+		and c.member_id = #member_id#
+	</select>
+	<select id="member_myreview_food" resultClass="MyReviewListVo" parameterClass="String">
+		select a.food_name ,
+		 	   a.food_code,
+		 	   a.food_city,
+		 	   b.f_star,
+		 	   b.f_content,
+		 	   b.f_date
+		from food a, food_review b
+		where  a.food_code= b.food_code
+		and member_id = #member_id#
+	</select>
+	<select id = "findId" resultClass = "String" parameterClass = "map" >
+		select member_id from member where member_name = #member_name# and member_phone = #member_phone#
+	</select>
+	
+	<select id = "findPass" resultClass = "String" parameterClass = "map">
+		select member_password from member where member_id = #member_id# and member_name = #member_name#
+	</select>
+	
+	<!-- 문의내역 -->
+	
+	<!--탈퇴  -->
+	<update id="member_delete" parameterClass="String">
+		update member set member_status = 0 where member_id = #member_id#
+	</update>
+	
+	<!--비밀번호변경 -->
+	<update id="updatePass" parameterClass="MemberVo">
+		update member set member_password =#member_password#  where member_id = #member_id#
+	</update>
+	<update id="member_update_myinfo" parameterClass="MemberVo">
+		update member set 
+			member_nickname = #member_nickname#,
+			member_phone 	= #member_phone#,
+			member_birth 	= #member_birth#,
+			member_hobby	= #member_hobby#,
+			member_addr		= #member_addr#			
+		 where member_id = #member_id#
+	</update>
+	
+</sqlMap>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+	<sqlMap namespace = "customercenter">
+	
+	<select id="cclist" resultClass="CustomerCenterVo" parameterClass="String">
+		select * from customercenter where member_id = #data#
+	</select>	
+	
+	<!-- 회원 문의사항 인서트! 순서 중요! 확인체크 -->
+	<update id="ccinsert" parameterClass="CustomerCenterVo">
+		insert into customercenter(cc_no, member_id, cc_title, cc_date, cc_content, cc_type, cc_status) 
+        values(cc_no_seq.nextval, #member_id#, #cc_title#, sysdate, #cc_content#, #cc_type#, 0)
+	</update>
+
+	<delete id="ccdelete" parameterClass="int">
+		delete from customercenter where cc_no = #cc_no#
+	</delete>
+        
+    <update id="ccupdate" parameterClass="CustomerCenterVo">
+		update customercenter 
+		   set cc_title = #cc_title#, cc_content = #cc_content#, cc_date = sysdate 
+	 	where cc_no = #cc_no#     
+    </update>    
+    
+    <!-- 관리자 문의사항 답변 인서트 및 수정? -->
+	<update id="cccommentupdate" parameterClass="CustomerCenterVo">
+		update customercenter 
+		   set cc_comment = #cc_comment#, cc_status = #cc_status# 
+	 	where cc_no = #cc_no#   
+	</update>
+	
+	<select id="cc_admin_allList" resultClass="CustomerCenterVo">
+		select * from customercenter
+	</select>
+
+	<select id="cc_admin_TypeList" parameterClass="map" resultClass="CustomerCenterVo">
+		select * from customercenter where cc_type = #cc_type# 
+		and cc_title like '%'||#searchText#||'%' or cc_content like '%'||#searchText#||'%'
+	</select>
+		
+	</sqlMap>

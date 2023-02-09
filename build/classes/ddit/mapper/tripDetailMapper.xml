@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="tripDetail">
+
+	<select id = "tripDetailCheck" parameterClass="map" resultClass="TripDetailVo">
+		select * from detail_day where ntrip_no = #ntrip_no# and detail_addr=#detail_addr#
+	</select>
+	
+	<update id="tripDetailInsert"  parameterClass="map">
+	
+		insert into detail_day(detailday_code, ntrip_no, trip_dday, detail_name, detail_addr, detail_xpoint, detail_ypoint, detail_routeno)
+		values( 'TD'||trip_detail_seq.nextval, #ntrip_no#, 1, #detail_name#, #detail_addr#, #detail_xpoint#, #detail_ypoint#, 1) 
+	
+	</update>
+	
+<!-- 		map.put("ntrip_no", ntrip_no); -->
+<!-- 		map.put("detail_addr", detail_addr); -->
+<!-- 		map.put("detail_name", detail_name); -->
+<!-- 		map.put("ypoint", ypoint); -->
+<!-- 		map.put("xpoint", xpoint); -->
+
+	<select id="searchMaxCount" parameterClass="String" resultClass="int">
+		select count(*) from nday where trip_no = #trip_no#
+	</select>
+	
+	<select id="tripDetailSelect" parameterClass="String" resultClass="TripDetailVo">
+		select * from detail_day where ntrip_no = #ntrip_no#
+	</select>
+	
+	<delete id="detailDayaDelite" parameterClass="String">
+		delete from detail_day where detailday_code = #detailday_code#
+	</delete>
+	
+</sqlMap>

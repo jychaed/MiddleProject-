@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+	<sqlMap namespace = "trip">
+	<select id = "tripList" resultClass="TripVo" parameterClass = "String">
+		 select trip_no, trip_title, trip_start, trip_end, trip_city, trip_people from trip where member_id = #member_id# order by 3
+	
+	</select>	
+	
+	
+	<select id = "ndayList" resultClass = "TripVo" parameterClass = "string">
+		
+			select * from trip where member_id = #member_id# order by 4
+			
+		
+	</select>
+	<select id = "dayList" resultClass = "TripDayVo" parameterClass="map">
+	
+				
+				select * from trip t, nday n
+				where t.trip_no = n.trip_no
+				and t.member_id = #member_id#
+				and n.trip_no = #trip_no#
+					
+				
+	</select>
+	
+	<insert id = "D_insert" parameterClass = "TripVo">
+		
+	</insert>
+
+	<insert id = "insertTrip" parameterClass="TripVo">
+		insert into trip(trip_no, member_id, trip_title, trip_start, trip_end, trip_city, trip_people) 
+           			 values(trip_no_seq.nextval, #member_id#, #trip_title#, 
+           			 to_date(#trip_start#), to_date(#trip_end#), 
+            		#trip_city#, #trip_people#)
+	</insert> 
+	
+	 <update id="updateTrip" parameterClass="TripVo">
+		update trip set trip_no = #trip_no#, trip_title = #trip_title#, trip_start = #trip_start#, 
+									 trip_end = #trip_end#, trip_city = #trip_city#,
+									 trip_people = #trip_people# where member_id = #member_id# and trip_no = #trip_no#
+	</update> 
+	
+	<delete id="deleteTrip" parameterClass = "string">
+		delete trip where trip_no = #trip_no#
+	</delete>
+	
+	
+	
+	</sqlMap>

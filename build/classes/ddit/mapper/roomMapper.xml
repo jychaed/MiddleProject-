@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+	
+	
+	<sqlMap namespace = "room">
+	
+	 <sql id="dynamicCondition">
+		<dynamic prepend=" where ">
+			<isNotEmpty property="room_city" prepend=" and ">
+					room_city like '%'||#room_city#||'%'
+			</isNotEmpty>
+			<isNotEmpty property="room_name" prepend=" and ">
+					room_name like '%'||#room_name#||'%'
+			
+			</isNotEmpty>
+		</dynamic>
+	</sql>
+	
+	
+	<select id="searchCityRoom" resultClass="RoomVo" parameterClass="String">
+		select * from room
+		  where room_city like 	'%'||#room_city#||'%'
+		  	or room_name like '%'||#room_city#||'%'
+		  	or room_addr like '%'||#room_city#||'%'
+<!-- 		 <include refid="dynamicCondition"/>  -->
+	</select>
+	
+	<select id="adminSearchRoom" resultClass="RoomVo" parameterClass="String">
+		select * from room
+		  where room_name like '%'||#room_city#||'%'
+	</select>
+	
+	 
+	<select id = "listRoom" resultClass="RoomVo">
+		select * from room
+	</select>	
+	
+	<select id="sortRoom" resultClass="RoomVo" parameterClass="String">
+		select * from room order by $colname$ desc
+	</select>
+	
+	<select id="searchRoom" resultClass="RoomVo" parameterClass="String">
+		select *from room where room_code = #room_code#
+	</select>
+
+	
+	<select id="seacrLocation" resultClass="RoomVo" parameterClass="String">
+
+		select * from room where room_addr like '%' || #keyword#||'%'
+	</select>
+	
+	
+	<!-- 숙소평점 업데이트 -->
+	<update id="room_avgstar_update" parameterClass="String">
+		update room set room_avgstar = 
+		(select avg(a.r_star) as avgstar from room_review a , roomres b, room c
+		where a.roomres_no = b.roomres_no
+		and b.room_code = c.room_code
+		and b.room_code = #roomcode#)
+		where room_code = #roomcode#
+	</update>
+	
+
+	
+	
+	
+	<select id="room_selectOne" resultClass="RoomVo" parameterClass="String">
+		select * from room where room_code = #room_code#
+	</select>
+	
+	<insert id="insertRoom" parameterClass="RoomVo">
+	insert into room (room_code, room_avgstar, room_name, 
+	room_addr, room_xpoint, room_ypoint, room_price, room_tel,
+	room_city, room_image, room_saveimage) 
+	values (('ROOM'|| room_code_seq.nextval), 0, #room_name#, 
+	#room_addr#, #room_xpoint#, #room_ypoint#, #room_price#, #room_tel#,
+	#room_city#, #room_image#, #room_saveimage#)
+	
+	</insert>
+	
+	<delete id="deleteRoom" parameterClass="String">
+		delete room where room_code = #room_code#
+	</delete>
+	
+	<update id="updateRoom" parameterClass="RoomVo">
+		 update room set room_name = #room_name# where room_code = #room_code# 
+	</update>
+	
+	
+
+	
+	
+	
+	
+	
+	<update id="roomWish" parameterClass="map">
+		insert into roomwish(r_wishno, room_code, member_id) values(('roomwish'||room_wish_seq.nextval), #roomcode#, #member_id#)
+	</update>
+	<select id="roomCheckWish" parameterClass="map" resultClass="RoomVo">
+		select * from roomwish where member_id= #member_id# and room_code=#roomcode#
+	</select>
+	<delete id="room_whish_delete" parameterClass="map">
+		delete roomwish where  member_id = #member_id# and room_code = #roomcode# 
+	</delete>
+	</sqlMap>

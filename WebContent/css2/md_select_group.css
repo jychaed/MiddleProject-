@@ -1,0 +1,162 @@
+/* ========================================================= */
+/* --------------------------------------------------------- */
+/*                       紐⑤컮�� (怨듯넻)                        */
+/* --------------------------------------------------------- */
+/* ========================================================= */
+
+/* �꾩떆�먯깋 �곸뿭 */
+.stu_md_select_group { display:none; position:fixed; top:0; left:0; right:0; bottom:0; margin:0; padding:0; background:none; opacity:0; overflow:hidden; z-index:101; }
+.stu_md_select_group.active { display:block; opacity:1; }
+.stu_md_background { position:absolute; top:0; left:0; right:0; bottom:0; margin:0; padding:0; background:rgba(0,0,0,.3); }
+.stu_md_container { position:fixed; top:0; left:50%; -webkit-transform:translateX(-50%); transform:translateX(-50%); width:100%; height:100%; background:#fff; }
+.stu_md_head { position:fixed; left:50%; -webkit-transform:translateX(-50%); transform:translateX(-50%); width:100%; height:50px; padding:0; border-bottom:1px solid #e5e5e5; background:#fff; text-align:center; }
+.stu_md_head a { display:block; position:absolute; top:0; right:0; padding:12.25px 16px; cursor:pointer; }
+.stu_md_head a i.ico_close { display:block; width:25.5px; height:25.5px; background-position:-4.25px -38.25px; background-size:272px; }
+.stu_md_head p { display:inline-block; margin:0; font-size:19px; font-weight:bold; line-height:50px; color:#4a4a4a; }
+.stu_md_body { height:calc(100% - 50px); margin:50px 0 0; padding:0 0 60px; background:#fff; overflow-y:auto; }
+.stu_md_body .tabArea { border-bottom:1px solid #eaeaea; }
+.stu_md_body .tabArea li { float:left; display:block; width:25%; height:50px; padding:0 10px; white-space:nowrap; cursor:pointer; }
+.stu_md_body .tabArea li + li { border-left:1px solid #eaeaea; }
+.stu_md_body .tabArea li button { display:block; width:100%; font-size:15px; font-weight:300; line-height:48px; color:#8f8f8f; }
+.stu_md_body .tabArea li.current button { border-bottom:3px solid #3ad195; font-weight:bold; color:#4a4a4a; }
+.stu_md_body .contArea { padding:20px 16px; }
+.stu_md_body .contArea li { margin:0 0 10px; }
+.stu_md_body .contArea li:after { content:""; display:table; clear:both; }
+.stu_md_body .c_left { float:left; width:90px; }
+.stu_md_body .c_left a { display:inline-block; height:30px; padding:0 10px; -webkit-border-radius:30px; border-radius:30px; border:1px solid #4a4a4a; font-size:14px; font-weight:bold; line-height:28px; white-space:nowrap; color:#4a4a4a; }
+.stu_md_body .c_left a:hover { background:#f5f5f5; }
+.stu_md_body .c_right { float:left; width:calc(100% - 90px); padding:0 0 0 10px; }
+.stu_md_body .c_right a { display:inline-block; margin:0 24px 10px 0; font-size:14px; font-weight:300; line-height:28px; color:#8f8f8f; }
+.stu_md_body .c_right a:hover { color:#4a4a4a; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================================= */
+/* --------------------------------------------------------- */
+/*                    �쒕툝由� (媛�濡� 諛� �몃줈)                    */
+/* --------------------------------------------------------- */
+/* ========================================================= */
+
+@media (min-width:620px){
+
+/* �꾩떆�먯깋 �곸뿭 */
+.stu_md_select_group {  }
+.stu_md_select_group.active {  }
+.stu_md_background {  }
+.stu_md_container { top:10%; left:10%; right:10%; bottom:10%; -webkit-transform:none; transform:none; width:80%; height:80%; -webkit-border-radius:4px; border-radius:4px; overflow:hidden; }
+.stu_md_head { position:relative; left:0; -webkit-transform:none; transform:none; height:54px; }
+.stu_md_head a { padding:14.25px 16px;}
+.stu_md_head a i.ico_close {  }
+.stu_md_head p { line-height:54px; }
+.stu_md_body { margin:0; }
+.stu_md_body .tabArea { position:absolute; top:54px; left:0; width:160px; border:none; }
+.stu_md_body .tabArea li { float:none; width:100%; height:54px; padding:0; }
+.stu_md_body .tabArea li + li { border:none; }
+.stu_md_body .tabArea li button { padding:0 0 0 20px; font-weight:normal; line-height:54px; text-align:left; color:#4a4a4a; }
+.stu_md_body .tabArea li:hover { background:#f5f5f7; }
+.stu_md_body .tabArea li.current button { border:none; background:#3ad195; color:#fff; }
+.stu_md_body .contArea { padding:20px 20px 20px 180px; }
+.stu_md_body .contArea li { margin:0 0 12px; }
+.stu_md_body .contArea li:after {  }
+.stu_md_body .c_left { width:110px; }
+.stu_md_body .c_left a { font-size:15px; }
+.stu_md_body .c_left a:hover {  }
+.stu_md_body .c_right { width:calc(100% - 110px); }
+.stu_md_body .c_right a { margin:0 24px 12px 0; font-size:15px; }
+.stu_md_body .c_right a:hover { text-decoration:underline; }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================================= */
+/* --------------------------------------------------------- */
+/*                    PC �� (媛�濡� 諛� �몃줈)                    */
+/* --------------------------------------------------------- */
+/* ========================================================= */
+
+@media (min-width:1025px){
+
+/* �꾩떆�먯깋 �곸뿭 */
+.stu_md_select_group {  }
+.stu_md_select_group.active {  }
+.stu_md_background {  }
+.stu_md_container { top:50%; left:50%; right:auto; bottom:auto; -webkit-transform:translate(-50%, -50%); transform:translate(-50%, -50%); max-width:740px; max-height:440px; }
+.stu_md_head {  }
+.stu_md_head a {  }
+.stu_md_head a i.ico_close {  }
+.stu_md_head p {  }
+.stu_md_body {  }
+.stu_md_body .tabArea {  }
+.stu_md_body .tabArea li {  }
+.stu_md_body .tabArea li + li {  }
+.stu_md_body .tabArea li button {  }
+.stu_md_body .tabArea li.current button {  }
+.stu_md_body .contArea {  }
+.stu_md_body .contArea li {  }
+.stu_md_body .contArea li:after {  }
+.stu_md_body .c_left {  }
+.stu_md_body .c_left a {  }
+.stu_md_body .c_left a:hover {  }
+.stu_md_body .c_right {  }
+.stu_md_body .c_right a {  }
+.stu_md_body .c_right a:hover {  }
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
